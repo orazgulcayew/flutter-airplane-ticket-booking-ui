@@ -9,9 +9,10 @@ import 'package:gap/gap.dart';
 class HotelContainer extends StatelessWidget {
   final Map<String, dynamic> hotel;
   const HotelContainer({Key? key, required this.hotel}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    double rating = hotel['rating'];
     final size = AppScreenSizes.getScreenSize(context);
     return Padding(
       padding: const EdgeInsets.only(right: 12),
@@ -47,14 +48,14 @@ class HotelContainer extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       "${hotel['name']}",
-                      style: Styles.headlineStyle3,
+                      style: textTheme.bodyLarge,
                     ),
                     const Gap(8),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         RatingBar.builder(
-                          initialRating: hotel['rating'],
+                          initialRating: rating,
                           minRating: 1,
                           direction: Axis.horizontal,
                           allowHalfRating: true,
@@ -75,8 +76,8 @@ class HotelContainer extends StatelessWidget {
                             "${hotel['reviews']} syn",
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: Styles.headlineStyle4
-                                .copyWith(fontSize: 12, color: Colors.white70),
+                            style: textTheme.bodyMedium
+                                ?.copyWith(fontSize: 12, color: Colors.white70),
                           ),
                         ),
                       ],
@@ -84,9 +85,9 @@ class HotelContainer extends StatelessWidget {
                     const Gap(8),
                     Row(
                       children: [
-                        const Icon(
+                        Icon(
                           CupertinoIcons.location,
-                          color: Colors.lime,
+                          color: theme.tertiary,
                           size: 20,
                         ),
                         Text(
@@ -94,8 +95,8 @@ class HotelContainer extends StatelessWidget {
                           overflow: TextOverflow.fade,
                           softWrap: false,
                           "${hotel['place']}",
-                          style: Styles.headlineStyle4
-                              .copyWith(color: Colors.white70),
+                          style: textTheme.bodySmall
+                              ?.copyWith(color: Colors.white70),
                         ),
                         const Spacer(),
                         Text(
@@ -103,8 +104,10 @@ class HotelContainer extends StatelessWidget {
                           overflow: TextOverflow.fade,
                           softWrap: false,
                           "TMT ${hotel['price']}",
-                          style: Styles.headlineStyle4.copyWith(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                          style: textTheme.bodyMedium?.copyWith(
+                              fontSize: 12,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),

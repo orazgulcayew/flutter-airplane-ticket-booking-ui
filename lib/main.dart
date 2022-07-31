@@ -13,10 +13,11 @@ class AirplaneTicketApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          fontFamily: 'Poppins',
-          useMaterial3: true,
-          brightness: Brightness.dark,
-          colorSchemeSeed: Colors.green),
+        fontFamily: 'Poppins',
+        useMaterial3: true,
+        brightness: Brightness.light,
+        colorSchemeSeed: Colors.green,
+      ),
       home: BottomBar(),
     );
   }

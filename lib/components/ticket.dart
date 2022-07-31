@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:book_airplane_ticket/components/circle_container.dart';
 import 'package:book_airplane_ticket/components/glass_effect.dart';
 import 'package:book_airplane_ticket/utils/screen_sizes.dart';
@@ -16,8 +14,8 @@ class AirplaneTicket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
     final size = AppScreenSizes.getScreenSize(context);
-
     return SizedBox(
       width: size.width * 0.90,
       height: 200,
@@ -30,7 +28,7 @@ class AirplaneTicket extends StatelessWidget {
               topRight: 24,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent.withOpacity(0.3),
+                  color: theme.primaryContainer.withOpacity(0.3),
                   borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(24),
                     topRight: Radius.circular(24),
@@ -43,11 +41,11 @@ class AirplaneTicket extends StatelessWidget {
                       children: [
                         Text(
                           ticket['from']['code'],
-                          style: Styles.headlineStyle3
-                              .copyWith(color: Colors.white),
+                          style: textTheme.bodyLarge
+                              ?.copyWith(color: Colors.white),
                         ),
                         Expanded(child: Container()),
-                        CircleContainer(),
+                        const CircleContainer(),
                         Expanded(
                           child: Stack(
                             children: [
@@ -89,8 +87,8 @@ class AirplaneTicket extends StatelessWidget {
                         Expanded(child: Container()),
                         Text(
                           ticket['destination']['code'],
-                          style: Styles.headlineStyle3
-                              .copyWith(color: Colors.white),
+                          style: textTheme.bodyLarge
+                              ?.copyWith(color: Colors.white),
                         ),
                       ],
                     ),
@@ -101,10 +99,10 @@ class AirplaneTicket extends StatelessWidget {
                         SizedBox(
                             width: 100,
                             child: Text(ticket['from']['name'],
-                                style: Styles.headlineStyle4
-                                    .copyWith(color: Colors.white))),
+                                style: textTheme.bodyMedium
+                                    ?.copyWith(color: Colors.white))),
                         Text(ticket['departure_time'],
-                            style: Styles.headlineStyle4.copyWith(
+                            style: textTheme.bodyMedium?.copyWith(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold)),
                         SizedBox(
@@ -112,8 +110,8 @@ class AirplaneTicket extends StatelessWidget {
                           child: Text(
                             ticket['destination']['name'],
                             textAlign: TextAlign.end,
-                            style: Styles.headlineStyle4
-                                .copyWith(color: Colors.white),
+                            style: textTheme.bodyMedium
+                                ?.copyWith(color: Colors.white),
                           ),
                         ),
                       ],
@@ -127,7 +125,7 @@ class AirplaneTicket extends StatelessWidget {
               child: GlassEffect(
                 child: Container(
                   height: 24,
-                  color: Colors.limeAccent.withOpacity(0.3),
+                  color: theme.tertiaryContainer.withOpacity(0.3),
                   child: LayoutBuilder(
                     builder:
                         (BuildContext context, BoxConstraints constraints) {
@@ -155,7 +153,7 @@ class AirplaneTicket extends StatelessWidget {
                 bottomRight: 24,
                 child: Container(
                   padding: const EdgeInsets.all(16),
-                  color: Colors.limeAccent.withOpacity(0.3),
+                  color: theme.tertiaryContainer.withOpacity(0.3),
                   child: Column(
                     children: <Widget>[
                       Row(
@@ -166,13 +164,15 @@ class AirplaneTicket extends StatelessWidget {
                             children: [
                               Text(
                                 ticket['date'],
-                                style: Styles.headlineStyle3
-                                    .copyWith(fontWeight: FontWeight.normal),
+                                style: textTheme.bodyLarge?.copyWith(
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white),
                               ),
                               const Gap(6),
                               Text(
                                 "Sene",
-                                style: Styles.headlineStyle4,
+                                style: textTheme.bodyMedium
+                                    ?.copyWith(color: Colors.white),
                               )
                             ],
                           ),
@@ -181,13 +181,14 @@ class AirplaneTicket extends StatelessWidget {
                             children: [
                               Text(
                                 ticket['flying_time'],
-                                style: Styles.headlineStyle3
-                                    .copyWith(fontWeight: FontWeight.normal),
+                                style: textTheme.bodyMedium
+                                    ?.copyWith(color: Colors.white),
                               ),
                               const Gap(6),
                               Text(
                                 "Uçuş wagty",
-                                style: Styles.headlineStyle4,
+                                style: textTheme.bodyMedium
+                                    ?.copyWith(color: Colors.white),
                               )
                             ],
                           ),
@@ -196,13 +197,14 @@ class AirplaneTicket extends StatelessWidget {
                             children: [
                               Text(
                                 ticket['airplane_code'],
-                                style: Styles.headlineStyle3
-                                    .copyWith(fontWeight: FontWeight.normal),
+                                style: textTheme.bodyLarge
+                                    ?.copyWith(color: Colors.white),
                               ),
                               const Gap(6),
                               Text(
                                 "Uçar belgi",
-                                style: Styles.headlineStyle4,
+                                style: textTheme.bodyMedium
+                                    ?.copyWith(color: Colors.white),
                               )
                             ],
                           )

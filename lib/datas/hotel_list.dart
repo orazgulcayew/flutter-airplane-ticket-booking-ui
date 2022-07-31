@@ -3,7 +3,7 @@ List<Map<String, dynamic>> hotelList = [
     "image": "hotel1.png",
     "place": "Aşgabat",
     "name": "Oguzkent myhmanhanasy",
-    "rating": 5,
+    "rating": 4.7,
     "reviews": 76,
     "price": 699
   },
@@ -11,7 +11,7 @@ List<Map<String, dynamic>> hotelList = [
     "image": "hotel2.png",
     "place": "Aşgabat",
     "name": "Ýyldyz myhmanhanasy",
-    "rating": 5,
+    "rating": 5.0,
     "reviews": 108,
     "price": 879
   },

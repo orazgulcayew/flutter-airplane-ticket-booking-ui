@@ -14,10 +14,10 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   static final List<Widget> screens = <Widget>[
-    HomeScreen(),
-    SearchScreen(),
-    TicketsScreen(),
-    ProfileScreen()
+    const HomeScreen(),
+    const SearchScreen(),
+    const TicketsScreen(),
+    const ProfileScreen()
   ];
 
   int currentIndex = 0;

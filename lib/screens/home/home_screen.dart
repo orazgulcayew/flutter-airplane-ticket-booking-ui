@@ -1,16 +1,11 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:book_airplane_ticket/components/glass_effect.dart';
 import 'package:book_airplane_ticket/components/hotel.dart';
 import 'package:book_airplane_ticket/components/search_bar.dart';
 import 'package:book_airplane_ticket/components/ticket.dart';
 import 'package:book_airplane_ticket/datas/hotel_list.dart';
 import 'package:book_airplane_ticket/datas/ticket_list.dart';
-import 'package:book_airplane_ticket/utils/screen_sizes.dart';
 import 'package:book_airplane_ticket/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -19,10 +14,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/background1.jpg'),
+          image: AssetImage('assets/images/background_day.jpg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -44,12 +40,15 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(
                             "Salam, ertiriňiz haýyr!",
-                            style: Styles.headlineStyle3,
+                            style: textTheme.bodyLarge
+                                ?.copyWith(color: Colors.white),
                           ),
                           const Gap(4),
                           Text(
                             "Türkmen Howa Ýollary",
-                            style: Styles.headlineStyle1,
+                            style: textTheme.titleLarge?.copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ],
                       ),
@@ -82,12 +81,13 @@ class HomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 8),
                           child: Text(
                             "Ýakyndaky uçuşlar",
-                            style: Styles.headlineStyle4,
+                            style: textTheme.bodyMedium
+                                ?.copyWith(color: Colors.white),
                           ),
                         ),
                         GlassEffect(
                           child: Container(
-                            color: Colors.greenAccent.withOpacity(0.3),
+                            color: theme.primaryContainer.withOpacity(0.3),
                             child: Padding(
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 8, vertical: 4),
@@ -95,8 +95,8 @@ class HomeScreen extends StatelessWidget {
                                 children: [
                                   Text(
                                     "Ählisini gör",
-                                    style: Styles.headlineStyle4
-                                        .copyWith(color: Colors.white),
+                                    style: textTheme.bodyMedium
+                                        ?.copyWith(color: Colors.white),
                                   ),
                                   const Icon(CupertinoIcons.chevron_forward,
                                       color: Colors.white)
@@ -136,12 +136,13 @@ class HomeScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 8),
                       child: Text(
                         "Myhmanhanalar",
-                        style: Styles.headlineStyle4,
+                        style:
+                            textTheme.bodyMedium?.copyWith(color: Colors.white),
                       ),
                     ),
                     GlassEffect(
                       child: Container(
-                        color: Colors.greenAccent.withOpacity(0.3),
+                        color: theme.primaryContainer.withOpacity(0.3),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 4),
@@ -149,8 +150,8 @@ class HomeScreen extends StatelessWidget {
                             children: [
                               Text(
                                 "Ählisini gör",
-                                style: Styles.headlineStyle4
-                                    .copyWith(color: Colors.white),
+                                style: textTheme.bodyMedium
+                                    ?.copyWith(color: Colors.white),
                               ),
                               const Icon(CupertinoIcons.chevron_forward,
                                   color: Colors.white)
