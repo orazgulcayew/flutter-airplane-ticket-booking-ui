@@ -5,12 +5,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 
 class HotelContainer extends StatelessWidget {
   final Map<String, dynamic> hotel;
   const HotelContainer({Key? key, required this.hotel}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    ColorScheme theme = Provider.of<ThemeProvider>(context).theme;
     TextTheme textTheme = Theme.of(context).textTheme;
     double rating = hotel['rating'];
     final size = AppScreenSizes.getScreenSize(context);
@@ -22,7 +24,7 @@ class HotelContainer extends StatelessWidget {
         bottomLeft: 24,
         bottomRight: 24,
         child: Container(
-          color: Colors.greenAccent.withOpacity(0.3),
+          color: theme.primaryContainer.withOpacity(0.3),
           width: size.width * 0.65,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +50,7 @@ class HotelContainer extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,
                       "${hotel['name']}",
-                      style: textTheme.bodyLarge,
+                      style: textTheme.bodyLarge?.copyWith(color: Colors.white),
                     ),
                     const Gap(8),
                     Row(
@@ -85,9 +87,9 @@ class HotelContainer extends StatelessWidget {
                     const Gap(8),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           CupertinoIcons.location,
-                          color: theme.tertiary,
+                          color: Colors.lime,
                           size: 20,
                         ),
                         Text(

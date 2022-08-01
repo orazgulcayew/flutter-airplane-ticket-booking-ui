@@ -2,6 +2,7 @@ import 'package:book_airplane_ticket/utils/screen_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:book_airplane_ticket/utils/styles.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 
 class ToggleTab extends StatefulWidget {
   const ToggleTab({Key? key}) : super(key: key);
@@ -33,6 +34,8 @@ class ToggleTabState extends State<ToggleTab> {
   @override
   Widget build(BuildContext context) {
     final size = AppScreenSizes.getScreenSize(context);
+    ColorScheme theme = Provider.of<ThemeProvider>(context).theme;
+
     return ToggleButtons(
       borderRadius: const BorderRadius.all(Radius.circular(48)),
       borderColor: theme.outline,

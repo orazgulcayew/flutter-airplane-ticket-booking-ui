@@ -8,17 +8,22 @@ import 'package:book_airplane_ticket/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme theme = Provider.of<ThemeProvider>(context).theme;
+    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
+    String backgroundImage = isDarkMode ? "night" : "dayy";
+
     TextTheme textTheme = Theme.of(context).textTheme;
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/background_day.jpg'),
+          image: AssetImage('assets/images/background_$backgroundImage.jpg'),
           fit: BoxFit.cover,
         ),
       ),

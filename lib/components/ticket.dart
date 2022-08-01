@@ -6,6 +6,7 @@ import 'package:book_airplane_ticket/utils/ticket_clipper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 
 class AirplaneTicket extends StatelessWidget {
   final Map<String, dynamic> ticket;
@@ -14,6 +15,8 @@ class AirplaneTicket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ColorScheme theme = Provider.of<ThemeProvider>(context).theme;
+
     TextTheme textTheme = Theme.of(context).textTheme;
     final size = AppScreenSizes.getScreenSize(context);
     return SizedBox(

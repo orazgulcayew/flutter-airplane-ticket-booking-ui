@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
-ColorScheme theme =
-    ColorScheme.fromSeed(seedColor: Colors.green, brightness: Brightness.light);
+class ThemeProvider extends ChangeNotifier {
+  Brightness brightness = Brightness.dark;
+
+  Future<void> toggleTheme(bool isOn) async {
+    brightness = isOn ? Brightness.dark : Brightness.light;
+
+    notifyListeners();
+  }
+
+  bool get isDarkMode => brightness == Brightness.dark;
+  ColorScheme get theme =>
+      ColorScheme.fromSeed(seedColor: Colors.green, brightness: brightness);
+}
 
 // class Styles {
 //   static TextStyle textStyle = const TextStyle(
