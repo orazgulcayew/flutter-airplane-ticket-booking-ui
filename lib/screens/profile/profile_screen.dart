@@ -9,20 +9,22 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
     final themeProvider = Provider.of<ThemeProvider>(context);
     ColorScheme theme = Provider.of<ThemeProvider>(context).theme;
-
+    bool isOn = themeProvider.isDarkMode;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Profil"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            child: Column(
-              children: [const Text("Hoş geldiňiz Oraz!")],
-            ),
+          Text(
+            "Hoş geldiňiz Oraz!",
+            style: textTheme.headline6,
           ),
+          const Gap(12),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Card(
@@ -52,9 +54,13 @@ class ProfileScreen extends StatelessWidget {
                   ListTile(
                       title: const Text("Garaňky tema"),
                       iconColor: theme.onSecondaryContainer,
-                      onTap: () {},
+                      onTap: () {
+                        themeProvider.toggleTheme(!isOn);
+                      },
                       trailing: Switch(
                           value: themeProvider.isDarkMode,
+                          activeTrackColor: theme.secondary,
+                          activeColor: theme.primaryContainer,
                           onChanged: (isOn) {
                             themeProvider.toggleTheme(isOn);
                           }),
@@ -77,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

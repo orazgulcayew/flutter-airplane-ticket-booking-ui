@@ -20,7 +20,7 @@ class _BottomBarState extends State<BottomBar> {
     const ProfileScreen()
   ];
 
-  int currentIndex = 3;
+  int currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
